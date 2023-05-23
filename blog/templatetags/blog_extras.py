@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.contrib.auth import get_user_model
 from django import template
 from django.utils.html import escape
@@ -37,6 +38,22 @@ def author_details_tag(context):
     current_user = request.user
     post = context["post"]
     author = post.author
+=======
+from django.utils.html import escape
+from django.utils.safestring import mark_safe
+from django import template
+from django.contrib.auth import get_user_model
+from django.utils.html import format_html
+
+user_model = get_user_model()
+
+register = template.Library()
+@register.filter
+def author_details(author, current_user=None):
+    if not isinstance(author, user_model):
+        # return empty string as safe default
+        return ""
+>>>>>>> origin
 
     if author == current_user:
         return format_html("<strong>me</strong>")
@@ -53,4 +70,8 @@ def author_details_tag(context):
         prefix = ""
         suffix = ""
 
+<<<<<<< HEAD
     return format_html("{}{}{}", prefix, name, suffix)
+=======
+    return format_html('{}{}{}', prefix, name, suffix)
+>>>>>>> origin
