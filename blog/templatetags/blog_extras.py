@@ -8,7 +8,6 @@ import logging
 user_model = get_user_model()
 register = template.Library()
 logger = logging.getLogger(__name__)
-
 @register.simple_tag
 def row(extra_classes=""):
     return format_html('<div class="row {}">', extra_classes)
