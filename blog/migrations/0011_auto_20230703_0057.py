@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='comment',
             name='created_at',
-            field=models.DateTimeField(default=2),
+            field=models.DateTimeField(default='2023-07-03 06:00:00.000000-08:00'),
             preserve_default=False,
         ),
         migrations.AlterField(
